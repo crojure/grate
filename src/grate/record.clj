@@ -14,9 +14,17 @@
   [line delim]
   (create (map str/trim (str/split line delim))))
 
+(defn bar?
+  [line]
+  (str/includes? line "|"))
+
+(defn csv?
+  [line]
+  (str/includes? line ","))
+
 (defn parse
   [line]
   (cond
-    (str/includes? line "|") (split-n-trim line #"\|")
-    (str/includes? line ",") (split-n-trim line #",")
+    (bar? line) (split-n-trim line #"\|")
+    (csv? line) (split-n-trim line #",")
     :else (split-n-trim (str/replace (str/trim line) #"\s+" ",") #",")))
