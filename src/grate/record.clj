@@ -10,10 +10,13 @@
      :favorite-color color
      :date-of-birth  date}))
 
-(defn parse
+(defn split-n-trim
   [line delim]
   (create (map str/trim (str/split line delim))))
 
-(defn parse-bar
+(defn parse
   [line]
-  (parse line #"\|"))
+  (cond
+    (str/includes? line "|") (split-n-trim line #"\|")
+    (str/includes? line ",") (split-n-trim line #",")
+    :else (split-n-trim (str/replace (str/trim line) #"\s+" ",") #",")))
