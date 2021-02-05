@@ -13,3 +13,7 @@
 (defn parse
   [line delim]
   (create (map str/trim (str/split line delim))))
+
+(defn parse-bar
+  [line]
+  (parse line #"\|"))

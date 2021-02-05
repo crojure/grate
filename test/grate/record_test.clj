@@ -9,7 +9,7 @@
             :gender "M"
             :favorite-color "hazel"
             :date-of-birth "1970-10-10"}
-           (parse " Crone |  Todd| M |hazel  |   1970-10-10   " #"\|")))))
+           (parse-bar " Crone |  Todd| M |hazel  |   1970-10-10   ")))))
 
 (deftest test-parse-partial-record
   (testing "Parse string of fields separated by a bar"
@@ -18,7 +18,7 @@
             :gender "M"
             :favorite-color ""
             :date-of-birth nil}
-           (parse " Crone |  Todd| M |   " #"\|")))))
+           (parse-bar " Crone |  Todd| M |  ")))))
 
 (deftest test-no-record
   (testing "Parse string of fields separated by a bar"
@@ -27,4 +27,4 @@
             :gender nil
             :favorite-color nil
             :date-of-birth nil}
-           (parse "" #"\|")))))
+           (parse-bar "")))))
