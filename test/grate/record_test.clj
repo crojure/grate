@@ -30,7 +30,7 @@
            (parse " Crone   Todd M hazel     1970-10-10   ")))))
 
 (deftest test-parse-partial-record
-  (testing "Parse string of fields separated by a bar"
+  (testing "Parse string of fields separated by a bar missing some columns"
     (is (= {:last-name      "Crone"
             :first-name     "Todd"
             :gender         "M"
