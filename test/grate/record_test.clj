@@ -46,3 +46,13 @@
             :favorite-color nil
             :date-of-birth  nil}
            (parse "")))))
+
+
+(deftest test-converting-record-date-to-json-str
+  (testing "Parse string of fields then"
+    (is (= "{\"last-name\":\"Crone\",\"first-name\":\"Todd\",\"gender\":\"M\",\"favorite-color\":\"hazel\",\"date-of-birth\":\"1970-10-10\"}"
+           (to-json {:last-name      "Crone"
+                     :first-name     "Todd"
+                     :gender         "M"
+                     :favorite-color "hazel"
+                     :date-of-birth  "1970-10-10"})))))

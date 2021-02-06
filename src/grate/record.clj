@@ -1,5 +1,6 @@
 (ns grate.record
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str])
+  (:require [clojure.data.json :as json]))
 
 (defn create
   [values]
@@ -28,3 +29,7 @@
     (bar? line) (split-n-trim line #"\|")
     (csv? line) (split-n-trim line #",")
     :else (split-n-trim (str/replace (str/trim line) #"\s+" ",") #",")))
+
+(defn to-json
+  [record]
+  (json/write-str record))
