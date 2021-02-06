@@ -1,11 +1,10 @@
 (ns grate.output
-  (:require [clojure.string :as str])
-  (:require [clojure.edn :as edn]))
+  (:require [clojure.string :as str]))
 
 (defn format-date-str
   [date-str]
   (let [[year month day] (str/split date-str #"-")]
-    (str (edn/read-string month) "/" (edn/read-string day) "/" year)))
+    (str (Integer/parseInt month) "/" (Integer/parseInt day) "/" year)))
 
 (defn display-str
   [record]
