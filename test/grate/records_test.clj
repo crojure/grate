@@ -1,4 +1,4 @@
-(ns grate.file-test
+(ns grate.records-test
   (:require [clojure.test :refer :all]
             [grate.records :refer :all]))
 
