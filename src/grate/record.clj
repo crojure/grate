@@ -34,6 +34,10 @@
   [record]
   (json/write-str record))
 
-(defn format-date-str
-  [date-str]
-  date-str)
+(defn compare-on-last-name-desc
+  [first second]
+  (compare (:last-name second) (:last-name first)))
+
+(defn compare-on-birth-date-asc
+  [first second]
+  (compare (:date-of-birth first) (:date-of-birth second)))

@@ -1,6 +1,7 @@
 (ns grate.core
   (:gen-class)
-  (:require [grate.records :as records]
+  (:require [grate.record :as record]
+            [grate.records :as records]
             [grate.output :as output]))
 
 (defn print-records
@@ -10,5 +11,7 @@
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (print-records (map output/display-str (records/load-from "test/load-bar-test.txt"))))
+  (print-records
+    (map output/display-str
+         (sort record/compare-on-birth-date-asc (records/load-from "test/test-file.txt")))))
 
