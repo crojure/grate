@@ -13,5 +13,5 @@
   [& args]
   (print-records
     (map output/display-str
-         (sort record/compare-on-birth-date-asc (records/load-from "test/test-file.txt")))))
+         (sort record/compare-on-gender-asc-then-last-name-asc (records/load-from "test/test-file.txt")))))
 
