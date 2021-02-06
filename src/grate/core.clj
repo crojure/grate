@@ -1,6 +1,6 @@
 (ns grate.core
   (:gen-class)
-  (:require [grate.file :as file]
+  (:require [grate.records :as records]
             [grate.output :as output]))
 
 (defn print-records
@@ -10,5 +10,5 @@
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (print-records (map output/display-str (file/read-records "test/load-bar-test.txt"))))
+  (print-records (map output/display-str (records/load-from "test/load-bar-test.txt"))))
 

@@ -1,6 +1,6 @@
 (ns grate.file-test
   (:require [clojure.test :refer :all]
-            [grate.file :refer :all]))
+            [grate.records :refer :all]))
 
 (deftest test-load-bar-file
   (testing "Load file with fields separated by bars"
@@ -9,4 +9,4 @@
             :gender         "M"
             :favorite-color "hazel"
             :date-of-birth  "1970-10-10"}
-           (first (read-records "test/load-bar-test.txt"))))))
+           (first (load-from "test/load-bar-test.txt"))))))
