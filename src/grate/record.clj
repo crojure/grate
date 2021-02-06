@@ -33,3 +33,7 @@
 (defn to-json
   [record]
   (json/write-str record))
+
+(defn format-date-str
+  [date-str]
+  date-str)
