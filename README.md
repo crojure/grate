@@ -1,7 +1,6 @@
 # Grate
 
 Guarantee Rate Homework
-Step #1 - Command line app
 
 ## Usage
 
