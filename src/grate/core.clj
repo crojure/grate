@@ -4,8 +4,6 @@
             [compojure.core :refer :all]
             [compojure.route :as route]
             [ring.middleware.defaults :refer :all]
-            [clojure.pprint :as pp]
-            [clojure.string :as str]
             [clojure.data.json :as json]
             [grate.records :as records]
             [grate.output :as output]
@@ -46,7 +44,7 @@
   "Load file location from first argument and print reports"
   [file-location]
   (println file-location)
-  (let [records (records/load-from file-location)]
+  (let [records (records/from-file file-location)]
     (output/gender-last-name-sort records)
     (output/birthdate-sort records)
     (output/last-name-sort records)))

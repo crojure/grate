@@ -9,4 +9,4 @@
             :gender         "M"
             :favorite-color "hazel"
             :date-of-birth  "1970-10-10"}
-           (first (load-from "test/test-file.txt"))))))
+           (first (from-file "test/test-file.txt"))))))
