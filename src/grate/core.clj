@@ -8,16 +8,28 @@
             [clojure.string :as str]
             [clojure.data.json :as json]
             [grate.records :as records]
-            [grate.output :as output]))
+            [grate.output :as output]
+            [grate.record :as record]))
+
+(def records-collection (atom []))
+
+(defn add-record [record-str]
+  (swap! records-collection conj (record/parse record-str)))
 
 (defn index [req]
   {:status  200
    :headers {"Content-Type" "application/json"}
-   :body    "{}"})
+   :body    (json/write-str records-collection)})
+
+(defn post [body]
+  (add-record body)
+  {:status  201
+   :headers {"Content-Type" "application/json"}
+   :body    body})
 
 (defroutes app-routes
            (context "/records" []
-             (POST "/" [] index)
+             (POST "/" {body :body} (post (slurp body)))
              (GET "/gender" [] index)
              (GET "/birthdate" [] index)
              (GET "/name" [] index)))
@@ -26,7 +38,7 @@
   "Run the API"
   []
   (let [port (Integer/parseInt (or (System/getenv "PORT") "3000"))]
-      (server/run-server (wrap-defaults #'app-routes site-defaults) {:port port})
+      (server/run-server (wrap-defaults #'app-routes api-defaults) {:port port})
       (println (str "Running webserver at http:/127.0.0.1:" port "/"))))
 
 (defn cli
@@ -41,5 +53,3 @@
 (defn -main
   [& args]
   (if (= (first args) "cli") (cli (second args)) (api)))
-
-
