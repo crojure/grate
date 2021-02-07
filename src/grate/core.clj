@@ -1,6 +1,13 @@
 (ns grate.core
   (:gen-class)
-  (:require [grate.record :as record]
+  (:require [org.httpkit.server :as server]
+            [compojure.core :refer :all]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer :all]
+            [clojure.pprint :as pp]
+            [clojure.string :as str]
+            [clojure.data.json :as json]
+            [grate.record :as record]
             [grate.records :as records]
             [grate.output :as output]))
 
@@ -27,7 +34,21 @@
   (print-records(map output/display-str
                      (sort record/compare-on-last-name-desc records))))
 
+(defn index [req]
+  {:status 200
+   :headers {"Content-Type" "application/json"}
+   :body "{}"})
+
+(defroutes app-routes
+           (GET "/" [] index))
+
 (defn -main
+  [& args]
+  (let [port (Integer/parseInt (or (System/getenv "PORT") "3000"))]
+    (server/run-server #'app-routes {:port port})
+    (println (str "Running webserver at http:/127.0.0.1:" port "/"))))
+
+(defn -main-cli
   "Load file location from first argument and print reports"
   [& args]
   (let [records (records/load-from (first args))]
