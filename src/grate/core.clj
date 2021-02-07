@@ -46,6 +46,13 @@
              (GET "/birthdate" [] index)
              (GET "/name" [] index)))
 
+(defn api
+  "Run the API"
+  []
+  (let [port (Integer/parseInt (or (System/getenv "PORT") "3000"))]
+      (server/run-server (wrap-defaults #'app-routes site-defaults) {:port port})
+      (println (str "Running webserver at http:/127.0.0.1:" port "/"))))
+
 (defn cli
   "Load file location from first argument and print reports"
   [file-location]
@@ -57,8 +64,6 @@
 
 (defn -main
   [& args]
-  (if (= (first args) "cli") (cli (second args)) (let [port (Integer/parseInt (or (System/getenv "PORT") "3000"))]
-                                                   (server/run-server #'app-routes {:port port})
-                                                   (println (str "Running webserver at http:/127.0.0.1:" port "/")))))
+  (if (= (first args) "cli") (cli (second args)) (api)))
 
 
