@@ -19,7 +19,7 @@
 (defn index [req]
   {:status  200
    :headers {"Content-Type" "application/json"}
-   :body    (json/write-str records-collection)})
+   :body    (json/write-str @records-collection)})
 
 (defn post [body]
   (add-record body)
@@ -29,6 +29,7 @@
 
 (defroutes app-routes
            (context "/records" []
+             (GET "/" [] index)
              (POST "/" {body :body} (post (slurp body)))
              (GET "/gender" [] index)
              (GET "/birthdate" [] index)
