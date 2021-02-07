@@ -12,6 +12,18 @@
   (str (:last-name record) "," (:first-name record) "," (:gender record) "," (:favorite-color record) ","
        (format-date-str (:date-of-birth record))))
 
+(defn viewable
+  [record]
+  {:last-name      (:last-name record)
+   :first-name     (:first-name record)
+   :gender         (:gender record)
+   :favorite-color (:favorite-color record)
+   :date-of-birth  (format-date-str (:date-of-birth record))})
+
+(defn to-viewable
+  [records]
+  (map viewable records))
+
 (defn print-records
   [records]
   (doseq [record records] (println record)))

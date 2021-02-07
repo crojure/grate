@@ -19,7 +19,7 @@
 (defn index [req]
   {:status  200
    :headers {"Content-Type" "application/json"}
-   :body    (json/write-str @records-collection)})
+   :body    (json/write-str (output/to-viewable @records-collection))})
 
 (defn post [body]
   (add-record body)
