@@ -5,17 +5,26 @@ Step #1 - Command line app
 
 ## Usage
 
-`lein run [file-location]`
+Using Leiningen:
 
-OR 
+API
+`lein run`
 
-```
-lein uberjar
-java -jar target/uberjar/grate-0.1.0-SNAPSHOT-standalone.jar [file-location]
-```
+CLI
+`lein run cli [file-location]`
+
+User UberJar:
+
+`lein uberjar`
+
+API
+`java -jar target/uberjar/grate-0.1.0-SNAPSHOT-standalone.jar`
+
+CLI
+`java -jar target/uberjar/grate-0.1.0-SNAPSHOT-standalone.jar cli [file-location]`
+
 
 ## Example Output
-
 ```
 *** Output 1 ***
 Smith,Jennifer,F,blue,7/8/1808

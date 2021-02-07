@@ -31,28 +31,30 @@
 (defn output3
   [records]
   (println "*** Output 3 ***")
-  (print-records(map output/display-str
-                     (sort record/compare-on-last-name-desc records))))
+  (print-records (map output/display-str
+                      (sort record/compare-on-last-name-desc records))))
 
 (defn index [req]
-  {:status 200
+  {:status  200
    :headers {"Content-Type" "application/json"}
-   :body "{}"})
+   :body    "{}"})
 
 (defroutes app-routes
            (GET "/" [] index))
 
-(defn -main
-  [& args]
-  (let [port (Integer/parseInt (or (System/getenv "PORT") "3000"))]
-    (server/run-server #'app-routes {:port port})
-    (println (str "Running webserver at http:/127.0.0.1:" port "/"))))
-
-(defn -main-cli
+(defn cli
   "Load file location from first argument and print reports"
-  [& args]
-  (let [records (records/load-from (first args))]
+  [file-location]
+  (println file-location)
+  (let [records (records/load-from file-location)]
     (output1 records)
     (output2 records)
     (output3 records)))
+
+(defn -main
+  [& args]
+  (if (= (first args) "cli") (cli (second args)) (let [port (Integer/parseInt (or (System/getenv "PORT") "3000"))]
+                                                   (server/run-server #'app-routes {:port port})
+                                                   (println (str "Running webserver at http:/127.0.0.1:" port "/")))))
+
 
