@@ -12,7 +12,7 @@
 (def records-collection (atom []))
 
 (defn add-record [record-str]
-  (swap! records-collection conj (record/parse record-str)))
+  (swap! records-collection concat (records/from-string record-str)))
 
 (defn index [req]
   {:status  200
