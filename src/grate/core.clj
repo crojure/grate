@@ -40,7 +40,11 @@
    :body    "{}"})
 
 (defroutes app-routes
-           (GET "/" [] index))
+           (context "/records" []
+             (POST "/" [] index)
+             (GET "/gender" [] index)
+             (GET "/birthdate" [] index)
+             (GET "/name" [] index)))
 
 (defn cli
   "Load file location from first argument and print reports"
