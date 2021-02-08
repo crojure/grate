@@ -12,12 +12,12 @@
 (defn index [request]
   {:status  200
    :headers {"Content-Type" "application/json"}
-   :body    (serializer/to-json-array (repository/find-all))})
+   :body    (serializer/to-json (repository/find-all))})
 
 (defn get-sorted [comparator]
   {:status  200
    :headers {"Content-Type" "application/json"}
-   :body    (serializer/to-json-array (repository/find-all-sorted-by comparator))})
+   :body    (serializer/to-json (repository/find-all-sorted-by comparator))})
 
 (defn add-record [record-str]
   (let [record (record/parse record-str)

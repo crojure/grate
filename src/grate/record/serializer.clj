@@ -12,7 +12,7 @@
   (str (:last-name record) "," (:first-name record) "," (:gender record) "," (:favorite-color record) ","
        (format-date-str (:date-of-birth record))))
 
-(defn to-rep
+(defn format-date
   [record]
   {:last-name      (:last-name record)
    :first-name     (:first-name record)
@@ -20,6 +20,6 @@
    :favorite-color (:favorite-color record)
    :date-of-birth  (format-date-str (:date-of-birth record))})
 
-(defn to-json-array
+(defn to-json
   [records]
-  (json/write-str (map to-rep records)))
+  (json/write-str (map format-date records)))

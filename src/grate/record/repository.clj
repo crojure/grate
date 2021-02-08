@@ -1,6 +1,5 @@
 (ns grate.record.repository
-  (:require [grate.record.parser :as record]
-            [grate.record.validator :as validator]))
+  (:require [grate.record.loader :as loader]))
 
 (def records (atom []))
 
@@ -23,8 +22,6 @@
   "Loads records from multi-line text file with one record per line"
   [file-location]
   (swap! records concat
-         (filter validator/valid?
-                 (with-open [reader (clojure.java.io/reader file-location)]
-                   (doall (map record/parse (line-seq reader))))))
+         (loader/from-file file-location))
   @records)
 
