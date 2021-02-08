@@ -36,3 +36,9 @@
                     (gender (:gender record))
                     (color (:favorite-color record))
                     (date (:date-of-birth record))]))
+
+(defn valid?
+  [record]
+  (and
+    (not (nil? record))
+    (empty? (validate record))))

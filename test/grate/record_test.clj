@@ -31,8 +31,18 @@
 
 (deftest test-parse-partial-record
   (testing "Parse string of fields separated by a bar missing some columns"
-    (is (nil? (parse " Crone |  Todd| M |  ")))))
+    (is (= {:last-name      "Crone"
+            :first-name     "Todd"
+            :gender         "M"
+            :favorite-color ""
+            :date-of-birth  nil}
+           (parse " Crone |  Todd| M |  ")))))
 
 (deftest test-no-record
   (testing "Parse string of fields separated by a bar"
-    (is (nil? (parse "")))))
+    (is (= {:last-name      ""
+            :first-name     nil
+            :gender         nil
+            :favorite-color nil
+            :date-of-birth  nil}
+           (parse "")))))

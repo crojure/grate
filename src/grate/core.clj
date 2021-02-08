@@ -3,7 +3,10 @@
   (:require [org.httpkit.server :as server]
             [compojure.core :refer :all]
             [ring.middleware.defaults :refer :all]
+            [clojure.data.json :as json]
             [grate.record.loader :as records]
+            [grate.record :as record]
+            [grate.record.validator :as validator]
             [grate.output :as output]
             [grate.record.serializer :as serializer]))
 
@@ -11,7 +14,10 @@
 (def records-collection (atom []))
 
 (defn add-record [record-str]
-  (swap! records-collection concat (records/from-string record-str)))
+  (let [record (record/parse record-str)
+        errors (validator/validate record)]
+    (if (empty? errors) (swap! records-collection conj))
+    {:record record :errors errors}))
 
 (defn index [req]
   {:status  200
@@ -19,10 +25,10 @@
    :body    (serializer/to-json-array @records-collection)})
 
 (defn post [body]
-  (add-record body)
-  {:status  201
-   :headers {"Content-Type" "application/json"}
-   :body    body})
+  (let [result (add-record body)]
+    {:status  (if (empty? (:errors result)) 201 400)
+     :headers {"Content-Type" "application/json"}
+     :body    (json/write-str result)}))
 
 (defroutes app-routes
            (context "/records" []
