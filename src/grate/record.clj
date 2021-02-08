@@ -25,7 +25,7 @@
 (defn create
   [values]
   (let [record (map-values values)]
-    (if (valid? record) record record)))
+    (if (valid? record) record nil)))
 
 (defn split-n-trim
   [line delim]

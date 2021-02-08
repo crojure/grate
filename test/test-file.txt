@@ -1,3 +1,6 @@
 Crone  |  Todd|M |purple  | 1970-10-10
+
  Smith , Jennifer,F,blue, 1808-07-08
+Invalid,File,X,notacolor, 0000-00-00
  Adams Quincy M green 1909-01-11
+ sldkjflsk
