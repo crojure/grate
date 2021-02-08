@@ -1,28 +1,6 @@
 (ns grate.output
-  (:require [clojure.string :as str]
+  (:require [grate.record.serializer :as serializer]
             [grate.record.comparator :as comparator]))
-
-(defn format-date-str
-  [date-str]
-  (let [[year month day] (str/split date-str #"-")]
-    (str (Integer/parseInt month) "/" (Integer/parseInt day) "/" year)))
-
-(defn display-str
-  [record]
-  (str (:last-name record) "," (:first-name record) "," (:gender record) "," (:favorite-color record) ","
-       (format-date-str (:date-of-birth record))))
-
-(defn viewable
-  [record]
-  {:last-name      (:last-name record)
-   :first-name     (:first-name record)
-   :gender         (:gender record)
-   :favorite-color (:favorite-color record)
-   :date-of-birth  (format-date-str (:date-of-birth record))})
-
-(defn to-viewable
-  [records]
-  (map viewable records))
 
 (defn print-records
   [records]
@@ -31,18 +9,18 @@
 (defn print-gender-last-name-sort
   [records]
   (println "*** Output 1: Sort by gender then last-name ascending ***")
-  (print-records (map display-str
+  (print-records (map serializer/to-csv
                       (sort comparator/gender-asc-then-last-name-asc records))))
 
 (defn print-birthdate-sort
   [records]
   (println "*** Output 2: Sort by birth-date ascending ***")
-  (print-records (map display-str
+  (print-records (map serializer/to-csv
                       (sort comparator/birth-date-asc records))))
 
 (defn print-last-name-sort
   [records]
   (println "*** Output 3: Sort by last name descending ***")
-  (print-records (map display-str
+  (print-records (map serializer/to-csv
                       (sort comparator/last-name-desc records))))
 
