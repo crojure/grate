@@ -24,12 +24,3 @@
   (and
     (not (nil? color))
     (.contains [ "red" "yellow" "blue" "orange" "green" "violet" "purple" "brown"] color)))
-
-(defn all?
-  [record]
-  (and
-    (name? (:last-name record))
-    (name? (:first-name record))
-    (gender? (:gender record))
-    (color? (:favorite-color record))
-    (date? (:date-of-birth record))))

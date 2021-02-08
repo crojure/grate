@@ -7,27 +7,27 @@
     (is (= {:last-name      "Crone"
             :first-name     "Todd"
             :gender         "M"
-            :favorite-color "hazel"
+            :favorite-color "purple"
             :date-of-birth  "1970-10-10"}
-           (parse " Crone |  Todd| M |hazel  |   1970-10-10   ")))))
+           (parse " Crone |  Todd| M |purple  |   1970-10-10   ")))))
 
 (deftest test-parse-record-csv
   (testing "Parse string of fields separated by a comma"
     (is (= {:last-name      "Crone"
             :first-name     "Todd"
             :gender         "M"
-            :favorite-color "hazel"
+            :favorite-color "purple"
             :date-of-birth  "1970-10-10"}
-           (parse " Crone,  Todd, M ,hazel  ,   1970-10-10   ")))))
+           (parse " Crone,  Todd, M ,purple  ,   1970-10-10   ")))))
 
 (deftest test-parse-record-whitespace
   (testing "Parse string of fields separated by a space"
     (is (= {:last-name      "Crone"
             :first-name     "Todd"
             :gender         "M"
-            :favorite-color "hazel"
+            :favorite-color "purple"
             :date-of-birth  "1970-10-10"}
-           (parse " Crone   Todd M hazel     1970-10-10   ")))))
+           (parse " Crone   Todd M purple     1970-10-10   ")))))
 
 (deftest test-parse-partial-record
   (testing "Parse string of fields separated by a bar missing some columns"

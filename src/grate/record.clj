@@ -1,8 +1,19 @@
 (ns grate.record
   (:require [clojure.string :as str])
-  (:require [clojure.data.json :as json]))
+  (:require [clojure.data.json :as json])
+  (:require [grate.validate :as validate]))
 
-(defn create
+(defn valid?
+  [record]
+  (and
+    (not (nil? record))
+    (validate/name? (:last-name record))
+    (validate/name? (:first-name record))
+    (validate/gender? (:gender record))
+    (validate/color? (:favorite-color record))
+    (validate/date? (:date-of-birth record))))
+
+(defn map-values
   [values]
   (let [[last first gender color date] values]
     {:last-name      last
@@ -10,6 +21,11 @@
      :gender         gender
      :favorite-color color
      :date-of-birth  date}))
+
+(defn create
+  [values]
+  (let [record (map-values values)]
+    (if (valid? record) record record)))
 
 (defn split-n-trim
   [line delim]
