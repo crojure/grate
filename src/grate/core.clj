@@ -16,7 +16,7 @@
 (defn add-record [record-str]
   (let [record (record/parse record-str)
         errors (validator/validate record)]
-    (if (empty? errors) (swap! records-collection conj))
+    (if (empty? errors) (swap! records-collection conj record))
     {:record record :errors errors}))
 
 (defn index [req]
