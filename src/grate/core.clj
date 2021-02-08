@@ -26,11 +26,11 @@
 (defn cli
   "Load file location from first argument and print reports"
   [file-location]
-  (println file-location)
+  (println "Loading" file-location)
   (let [records (records/from-file file-location)]
-    (output/print-gender-last-name-sort records)
-    (output/print-birthdate-sort records)
-    (output/print-last-name-sort records)))
+    (output/print-gender-last-name-sort records println)
+    (output/print-birthdate-sort records println)
+    (output/print-last-name-sort records println)))
 
 (defn -main
   [& args]
