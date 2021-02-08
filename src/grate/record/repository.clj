@@ -12,3 +12,6 @@
   @records)
 
 (defn find-all [] @records)
+
+(defn find-all-sorted-by [comparator]
+  (sort comparator @records))
