@@ -1,4 +1,4 @@
-(ns grate.record.serializer_test
+(ns grate.record.serializer-test
   (:require [clojure.test :refer :all]
             [grate.record.serializer :refer :all]))
 

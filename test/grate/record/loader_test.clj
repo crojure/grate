@@ -1,4 +1,4 @@
-(ns grate.record.loader_test
+(ns grate.record.loader-test
   (:require [clojure.test :refer :all]
             [grate.record.loader :refer :all]))
 

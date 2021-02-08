@@ -1,4 +1,4 @@
-(ns grate.record.comparator_test
+(ns grate.record.comparator-test
   (:require [clojure.test :refer :all]
             [grate.record.comparator :refer :all]))
 
