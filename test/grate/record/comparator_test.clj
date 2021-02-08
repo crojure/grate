@@ -13,3 +13,17 @@
       (is (= bob (first sorted)))
       (is (= jen (second sorted)))
       (is (= todd (last sorted))))))
+
+(deftest test-birth-date-asc
+  (testing "Sort birth-date asc"
+    (let [sorted (sort birth-date-asc records)]
+      (is (= bob (first sorted)))
+      (is (= todd (second sorted)))
+      (is (= jen (last sorted))))))
+
+(deftest test-gender-asc-then-last-name-asc
+  (testing "Sort gender asc then last-name asc"
+    (let [sorted (sort gender-asc-then-last-name-asc records)]
+      (is (= jen (first sorted)))
+      (is (= todd (second sorted)))
+      (is (= bob (last sorted))))))
