@@ -2,11 +2,11 @@
   (:gen-class)
   (:require [org.httpkit.server :as server]
             [compojure.core :refer :all]
-            [compojure.route :as route]
             [ring.middleware.defaults :refer :all]
-            [clojure.data.json :as json]
             [grate.record.loader :as records]
-            [grate.output :as output]))
+            [grate.output :as output]
+            [grate.record.serializer :as serializer]))
+
 
 (def records-collection (atom []))
 
@@ -16,7 +16,7 @@
 (defn index [req]
   {:status  200
    :headers {"Content-Type" "application/json"}
-   :body    (json/write-str (output/to-viewable @records-collection))})
+   :body    (serializer/to-json-array @records-collection)})
 
 (defn post [body]
   (add-record body)
