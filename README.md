@@ -41,6 +41,24 @@ CLI
 `java -jar target/uberjar/grate-0.1.0-SNAPSHOT-standalone.jar cli [file-location]`
 
 
+## Example record Input
+
+Records can be delimited by bars '|', commas ',' or whitespace.
+
+```
+Crone|Todd|M|purple|1960-11-11
+Cleavinger,Lynette,F,brown,1979-09-28
+Crone Todd M purple 1970-10-10
+```
+
+* fields should be ordered `LastName FirstName Gender Favorite Color Date of Birth`
+* extra whitespaces are removed
+* all fields must have a non-blank value
+* Gender can be `M` or `F` only
+* Valid colors are: "red" "yellow" "blue" "orange" "green" "violet" "purple" "brown"
+* Date of birth must be provided in `YYYY-MM-DD` format including
+
+
 ## Example CLI Output
 ```
 *** Output 1 ***
