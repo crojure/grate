@@ -1,6 +1,7 @@
 (ns grate.output
   (:require [clojure.string :as str]
-            [grate.record :as record]))
+            [grate.record :as record]
+            [grate.record.comparator :as comparator]))
 
 (defn format-date-str
   [date-str]
@@ -32,17 +33,17 @@
   [records]
   (println "*** Output 1: Sort by gender then last-name ascending ***")
   (print-records (map display-str
-                      (sort record/compare-on-gender-asc-then-last-name-asc records))))
+                      (sort comparator/compare-on-gender-asc-then-last-name-asc records))))
 
 (defn print-birthdate-sort
   [records]
   (println "*** Output 2: Sort by birth-date ascending ***")
   (print-records (map display-str
-                      (sort record/compare-on-birth-date-asc records))))
+                      (sort comparator/compare-on-birth-date-asc records))))
 
 (defn print-last-name-sort
   [records]
   (println "*** Output 3: Sort by last name descending ***")
   (print-records (map display-str
-                      (sort record/compare-on-last-name-desc records))))
+                      (sort comparator/compare-on-last-name-desc records))))
 
