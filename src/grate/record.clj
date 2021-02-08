@@ -46,10 +46,6 @@
     (csv? line) (split-n-trim line #",")
     :else (split-n-trim (str/replace (str/trim line) #"\s+" ",") #",")))
 
-(defn to-json
-  [record]
-  (json/write-str record))
-
 (defn compare-on-last-name-desc
   [first second]
   (compare (:last-name second) (:last-name first)))
