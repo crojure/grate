@@ -1,6 +1,6 @@
-(ns grate.records-test
+(ns grate.record.loader_test
   (:require [clojure.test :refer :all]
-            [grate.records :refer :all]))
+            [grate.record.loader :refer :all]))
 
 (deftest test-from-file
   (testing "Load file with fields separated by bars"

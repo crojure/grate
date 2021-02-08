@@ -5,9 +5,8 @@
             [compojure.route :as route]
             [ring.middleware.defaults :refer :all]
             [clojure.data.json :as json]
-            [grate.records :as records]
-            [grate.output :as output]
-            [grate.record :as record]))
+            [grate.record.loader :as records]
+            [grate.output :as output]))
 
 (def records-collection (atom []))
 

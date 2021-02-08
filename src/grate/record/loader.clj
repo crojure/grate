@@ -1,4 +1,4 @@
-(ns grate.records
+(ns grate.record.loader
   (:require [grate.record :as record]))
 
 (defn from-string
