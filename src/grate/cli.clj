@@ -1,4 +1,4 @@
-(ns grate.output
+(ns grate.cli
   (:require [grate.record.serializer :as serializer]
             [grate.record.comparator :as comparator]))
 

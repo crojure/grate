@@ -1,6 +1,6 @@
-(ns grate.handler-test
+(ns grate.api-test
   (:require [clojure.test :refer :all])
-  (:require [grate.handler :refer :all]
+  (:require [grate.api :refer :all]
             [grate.record.comparator :as comparator]
             [grate.record.repository :as repository]))
 

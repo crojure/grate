@@ -1,4 +1,4 @@
-(ns grate.handler
+(ns grate.api
   (:require [grate.record.parser :as record]
             [grate.record.validator :as validator]
             [grate.record.repository :as repository]
