@@ -28,9 +28,9 @@
   [file-location]
   (println "Loading" file-location)
   (let [records (records/from-file file-location)]
-    (cli/print-gender-last-name-sort records println)
-    (cli/print-birthdate-sort records println)
-    (cli/print-last-name-sort records println)))
+    (cli/print-report "*** Sort by gender and last name asc ***" records println comparator/gender-asc-then-last-name-asc)
+    (cli/print-report "*** Sort by birth date asc ***" records println comparator/birth-date-asc)
+    (cli/print-report "*** Sort by last name desc ***" records println comparator/last-name-desc)))
 
 (defn -main
   [& args]
