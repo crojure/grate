@@ -9,5 +9,6 @@
             :gender         "M"
             :favorite-color "purple"
             :date-of-birth  "1970-10-10"}
-           (first (load-from-file "test/test-file.txt"))))))
+           (first (load-from-file "test/test-file.txt")))))
+  (is (= 3 (count (find-all)))))
 

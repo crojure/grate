@@ -10,3 +10,5 @@
   (swap! records concat (filter validator/valid? (with-open [reader (clojure.java.io/reader file-location)]
                                                    (doall (map record/parse (line-seq reader))))))
   @records)
+
+(defn find-all [] @records)
