@@ -7,7 +7,7 @@
     (is (= {:last-name      "Crone"
             :first-name     "Todd"
             :gender         "M"
-            :favorite-color "hazel"
+            :favorite-color "purple"
             :date-of-birth  "1970-10-10"}
            (first (from-file "test/test-file.txt"))))))
 
@@ -16,6 +16,6 @@
     (is (= {:last-name      "Crone"
             :first-name     "Todd"
             :gender         "M"
-            :favorite-color "hazel"
+            :favorite-color "purple"
             :date-of-birth  "1970-10-10"}
            (first (from-string (slurp "test/test-file.txt")))))))

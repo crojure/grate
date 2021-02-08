@@ -5,7 +5,6 @@
   [string]
   (map record/parse (clojure.string/split-lines string)))
 
-
 (defn from-file
   [file-location]
   (with-open [reader (clojure.java.io/reader file-location)]
