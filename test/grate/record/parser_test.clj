@@ -1,6 +1,6 @@
-(ns grate.record-test
+(ns grate.record.parser-test
   (:require [clojure.test :refer :all]
-            [grate.record :refer :all]))
+            [grate.record.parser :refer :all]))
 
 (deftest test-parse-record-bar
   (testing "Parse string of fields separated by a bar"

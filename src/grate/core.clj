@@ -5,7 +5,7 @@
             [ring.middleware.defaults :refer :all]
             [clojure.data.json :as json]
             [grate.record.loader :as records]
-            [grate.record :as record]
+            [grate.record.parser :as record]
             [grate.record.validator :as validator]
             [grate.output :as output]
             [grate.record.serializer :as serializer]))

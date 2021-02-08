@@ -1,7 +1,5 @@
-(ns grate.record
-  (:require [clojure.string :as str])
-  (:require [clojure.data.json :as json])
-  (:require [grate.validate :as validate]))
+(ns grate.record.parser
+  (:require [clojure.string :as str]))
 
 (defn map-values
   [values]

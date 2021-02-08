@@ -1,5 +1,5 @@
 (ns grate.record.loader
-  (:require [grate.record :as record]
+  (:require [grate.record.parser :as record]
             [grate.record.validator :as validator]))
 
 (defn from-file

@@ -8,7 +8,7 @@
         (empty? (re-matches #"([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))" date-str)))
     "Date must be non-null string with format 'YYYY-MM-DD'" nil))
 
-(defn name
+(defn name-str
   [name-str]
   (if (or
         (nil? name-str)
@@ -31,8 +31,8 @@
 
 (defn validate
   [record]
-  (filter identity [(name (:last-name record))
-                    (name (:first-name record))
+  (filter identity [(name-str (:last-name record))
+                    (name-str (:first-name record))
                     (gender (:gender record))
                     (color (:favorite-color record))
                     (date (:date-of-birth record))]))
