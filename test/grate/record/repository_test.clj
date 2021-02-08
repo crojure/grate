@@ -3,7 +3,12 @@
             [grate.record.repository :refer :all]
             [grate.record.comparator :as comparator]))
 
-(load-from-file "test/test-file.txt")
+(defn with-repo-data [f]
+  (load-from-file "test/test-file.txt")
+  (f)
+  (delete-all))
+
+(use-fixtures :each with-repo-data)
 
 (deftest test-load-from-file
   (testing "Load repository data from file"
@@ -25,3 +30,13 @@
               :date-of-birth  "1808-07-08"}
              (first sorted)))
       (is (= 3 (count sorted))))))
+
+(deftest test-add
+  (testing "Add record to repository"
+    (let [record (add {:last-name      "Guy"
+                       :first-name     "New"
+                       :gender         "M"
+                       :favorite-color "orange"
+                       :date-of-birth  "2000-01-01"})]
+      (is (= "New" (:first-name record)))
+      (is (= 4 (count (find-all)))))))
