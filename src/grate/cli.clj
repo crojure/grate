@@ -14,13 +14,13 @@
 
 (defn print-birthdate-sort
   [records out]
-  (println "*** Output 2: Sort by birth-date ascending ***")
+  (out "*** Output 2: Sort by birth-date ascending ***")
   (print-records (map serializer/to-csv
                       (sort comparator/birth-date-asc records)) out))
 
 (defn print-last-name-sort
   [records out]
-  (println "*** Output 3: Sort by last name descending ***")
+  (out "*** Output 3: Sort by last name descending ***")
   (print-records (map serializer/to-csv
                       (sort comparator/last-name-desc records)) out))
 
