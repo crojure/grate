@@ -1,6 +1,5 @@
 (ns grate.output
   (:require [clojure.string :as str]
-            [grate.record :as record]
             [grate.record.comparator :as comparator]))
 
 (defn format-date-str
