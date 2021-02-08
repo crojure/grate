@@ -12,13 +12,15 @@
 
 (deftest test-index
   (testing "Handle index"
-    (is (= {:status 200, :headers {"Content-Type" "application/json"}, :body ()}
+    (is (= {:status 200, :headers {"Content-Type" "application/json"}, :body "[]"}
            (index nil)))))
 
 (deftest test-get-sorted
   (testing "Handle get sorted records"
+    (post "Crone|Todd|M|green|1970-10-10")
     (let  [response (get-sorted comparator/birth-date-asc)]
       (is (not (nil? (:body response))))
+      (is (= "[{\"last-name\":\"Crone\",\"first-name\":\"Todd\",\"gender\":\"M\",\"favorite-color\":\"green\",\"date-of-birth\":\"10\\/10\\/1970\"}]" (:body response)))
       (is (= (:status response) 200)))))
 
 (deftest test-post-successful-created

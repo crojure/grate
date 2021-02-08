@@ -59,16 +59,15 @@ Crone Todd M purple 1970-10-10
 
 ## Example CLI Output
 ```
-Loading /Users/somebody/some-file.txt
-*** Output 1: Sort by gender then last-name ascending ***
+*** Sort by gender and last name asc ***
 Smith,Jennifer,F,blue,7/8/1808
 Adams,Quincy,M,green,1/11/1909
 Crone,Todd,M,purple,10/10/1970
-*** Output 2: Sort by birth-date ascending ***
+*** Sort by birth date asc ***
 Smith,Jennifer,F,blue,7/8/1808
 Adams,Quincy,M,green,1/11/1909
 Crone,Todd,M,purple,10/10/1970
-*** Output 3: Sort by last name descending ***
+*** Sort by last name desc ***
 Smith,Jennifer,F,blue,7/8/1808
 Crone,Todd,M,purple,10/10/1970
 Adams,Quincy,M,green,1/11/1909

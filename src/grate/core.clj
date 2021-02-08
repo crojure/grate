@@ -5,4 +5,4 @@
 
 (defn -main
   [& args]
-  (if (= (first args) "cli") (cli/run (second args)) (api/run)))
+  (if (= (first args) "cli") (cli/run (second args) println) (api/run)))

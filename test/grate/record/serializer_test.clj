@@ -15,12 +15,3 @@
                         :gender         "M"
                         :favorite-color "purple"
                         :date-of-birth  "1970-10-10"})))))
-
-(deftest test-to-json
-  (testing "Serialize record for JSON output"
-    (is (= "{\"last-name\":\"Crone\",\"first-name\":\"Todd\",\"gender\":\"M\",\"favorite-color\":\"purple\",\"date-of-birth\":\"10\\/10\\/1970\"}"
-           (to-json {:last-name      "Crone"
-                     :first-name     "Todd"
-                     :gender         "M"
-                     :favorite-color "purple"
-                     :date-of-birth  "1970-10-10"})))))

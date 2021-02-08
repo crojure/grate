@@ -15,11 +15,11 @@
 
 (defn run
   "Load file location from first argument and print reports"
-  [file-location]
+  [file-location out]
   (let [records (loader/from-file file-location)]
-    (print-report "*** Sort by gender and last name asc ***" records println comparator/gender-asc-then-last-name-asc)
-    (print-report "*** Sort by birth date asc ***" records println comparator/birth-date-asc)
-    (print-report "*** Sort by last name desc ***" records println comparator/last-name-desc)))
+    (print-report "*** Sort by gender and last name asc ***" records out comparator/gender-asc-then-last-name-asc)
+    (print-report "*** Sort by birth date asc ***" records out comparator/birth-date-asc)
+    (print-report "*** Sort by last name desc ***" records out comparator/last-name-desc)))
 
 
 
