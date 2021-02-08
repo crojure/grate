@@ -28,21 +28,21 @@
   [records]
   (doseq [record records] (println record)))
 
-(defn gender-last-name-sort
+(defn print-gender-last-name-sort
   [records]
-  (println "*** Output 1 ***")
+  (println "*** Output 1: Sort by gender then last-name ascending ***")
   (print-records (map display-str
                       (sort record/compare-on-gender-asc-then-last-name-asc records))))
 
-(defn birthdate-sort
+(defn print-birthdate-sort
   [records]
-  (println "*** Output 2 ***")
+  (println "*** Output 2: Sort by birth-date ascending ***")
   (print-records (map display-str
                       (sort record/compare-on-birth-date-asc records))))
 
-(defn last-name-sort
+(defn print-last-name-sort
   [records]
-  (println "*** Output 3 ***")
+  (println "*** Output 3: Sort by last name descending ***")
   (print-records (map display-str
                       (sort record/compare-on-last-name-desc records))))
 

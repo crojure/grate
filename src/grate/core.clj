@@ -45,9 +45,9 @@
   [file-location]
   (println file-location)
   (let [records (records/from-file file-location)]
-    (output/gender-last-name-sort records)
-    (output/birthdate-sort records)
-    (output/last-name-sort records)))
+    (output/print-gender-last-name-sort records)
+    (output/print-birthdate-sort records)
+    (output/print-last-name-sort records)))
 
 (defn -main
   [& args]
