@@ -1,7 +1,5 @@
 # Grate
 
-Guarantee Rate Homework
-
 Rather than use a JVM language I'm familiar with (Java, Groovy, Kotlin) I decided to use Clojure.
 
 I have not practical experience with Clojure or its tools but thought that this would achieve several goals that using 
