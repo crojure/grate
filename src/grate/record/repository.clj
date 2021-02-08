@@ -22,7 +22,9 @@
 (defn load-from-file
   "Loads records from multi-line text file with one record per line"
   [file-location]
-  (swap! records concat (filter validator/valid? (with-open [reader (clojure.java.io/reader file-location)]
-                                                   (doall (map record/parse (line-seq reader))))))
+  (swap! records concat
+         (filter validator/valid?
+                 (with-open [reader (clojure.java.io/reader file-location)]
+                   (doall (map record/parse (line-seq reader))))))
   @records)
 
