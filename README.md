@@ -6,8 +6,8 @@ I have no practical experience with Clojure or its tools but thought that this w
 familiar languages and tools would not.
 
 1. Fun! - Coding off hours is more fun using stuff you don't use in your day job.
-1. Familiarity - Using Clojure for this helps me figure out if I would enjoy using on a daily basis.
-1. Flexibility - Show I can spend a weekend using Clojure tools and become effective.
+1. Familiarity - Using Clojure for this helps me figure out if I would enjoy using it on a daily basis.
+1. Flexibility - Show I can spend a weekend using Clojure tools and become effective with no practical experience.
 
 ## Usage
 
