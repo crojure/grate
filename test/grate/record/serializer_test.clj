@@ -9,9 +9,9 @@
 
 (deftest test-to-csv
   (testing "Serialize record for CSV output"
-        (is (= "Crone,Todd,M,purple,10/10/1970"
-               (to-csv {:last-name      "Crone"
-                        :first-name     "Todd"
-                        :gender         "M"
-                        :favorite-color "purple"
-                        :date-of-birth  "1970-10-10"})))))
+    (is (= "Crone,Todd,M,purple,10/10/1970"
+           (to-csv {:last-name      "Crone"
+                    :first-name     "Todd"
+                    :gender         "M"
+                    :favorite-color "purple"
+                    :date-of-birth  "1970-10-10"})))))

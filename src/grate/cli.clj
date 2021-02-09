@@ -10,8 +10,8 @@
   [header records out comparator]
   (out header)
   (print-records
-    (map serializer/to-csv
-         (sort comparator records)) out))
+   (map serializer/to-csv
+        (sort comparator records)) out))
 
 (defn run
   "Load file location from first argument and print reports"

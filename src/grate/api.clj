@@ -32,12 +32,12 @@
      :body    (json/write-str result)}))
 
 (defroutes app-routes
-           (context "/records" []
-             (GET "/" [] index)
-             (POST "/" {body :body} (post (slurp body)))
-             (GET "/gender" [] (get-sorted comparator/gender-asc-then-last-name-asc))
-             (GET "/birthdate" [] (get-sorted comparator/birth-date-asc))
-             (GET "/name" [] (get-sorted comparator/last-name-desc))))
+  (context "/records" []
+    (GET "/" [] index)
+    (POST "/" {body :body} (post (slurp body)))
+    (GET "/gender" [] (get-sorted comparator/gender-asc-then-last-name-asc))
+    (GET "/birthdate" [] (get-sorted comparator/birth-date-asc))
+    (GET "/name" [] (get-sorted comparator/last-name-desc))))
 
 (defn run
   "Run the API"
@@ -45,4 +45,3 @@
   (let [port (Integer/parseInt (or (System/getenv "PORT") "3000"))]
     (server/run-server (wrap-defaults #'app-routes api-defaults) {:port port})
     (println (str "Running webserver at http:/127.0.0.1:" port "/"))))
-
