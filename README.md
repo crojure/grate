@@ -41,6 +41,8 @@ CLI
 
 ## API
 
+Base URI: `http://localhost:3000`
+
 `POST /records` - Post single data line of any 3 formats (bar, csv, whitespace)
 
 `GET /records` - Gets JSON array of all records in repository in no particular order
