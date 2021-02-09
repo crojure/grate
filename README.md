@@ -87,3 +87,9 @@ Smith,Jennifer,F,blue,7/8/1808
 Crone,Todd,M,purple,10/10/1970
 Adams,Quincy,M,green,1/11/1909
 ```
+
+## Known Issues
+
+I'm a noob with Clojure/Compojure so have not figured out why POSTing nothing to POST endpoint
+returns 500 because `Cannot open <nil> as a Reader.` .  Didn't spend much time investigating as I'm sure its a noob mistake and returning
+400 in this case is easy likely enough.
