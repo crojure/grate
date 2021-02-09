@@ -19,6 +19,24 @@ Run tests
 Check test coverage (via Cloverage plugin)
 `lein cloverage`
 
+```
+|-------------------------+---------+---------|
+|               Namespace | % Forms | % Lines |
+|-------------------------+---------+---------|
+|               grate.api |   50.00 |   73.33 |
+|               grate.cli |   89.47 |  100.00 |
+|              grate.core |   12.50 |   66.67 |
+| grate.record.comparator |  100.00 |  100.00 |
+|     grate.record.loader |  100.00 |  100.00 |
+|     grate.record.parser |  100.00 |  100.00 |
+| grate.record.repository |  100.00 |  100.00 |
+| grate.record.serializer |  100.00 |  100.00 |
+|  grate.record.validator |   99.16 |  100.00 |
+|-------------------------+---------+---------|
+|               ALL FILES |   82.91 |   93.18 |
+|-------------------------+---------+---------|
+```
+
 Run server with API
 `lein run`
 
