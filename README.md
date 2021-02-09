@@ -1,8 +1,8 @@
-# Grate
+# GRate
 
 Rather than use a JVM language I'm familiar with (Java, Groovy, Kotlin) I decided to use Clojure.
 
-I have not practical experience with Clojure or its tools but thought that this would achieve several goals that using 
+I have no practical experience with Clojure or its tools but thought that this would achieve several goals that using 
 familiar languages and tools would not.
 
 1. Fun! - Coding off hours is more fun using stuff you don't use in your day job.
@@ -37,6 +37,19 @@ API
 
 CLI
 `java -jar target/uberjar/grate-0.1.0-SNAPSHOT-standalone.jar cli [file-location]`
+
+
+## API
+
+`POST /records` - Post single data line of any 3 formats (bar, csv, whitespace)
+
+`GET /records` - Gets JSON array of all records in repository in no particular order
+
+`GET /records/gender` - Gets records sorted by gender then last name
+
+`GET /records/birthdate` - Gets records sorted by birth date
+
+`GET /records/name` - Gets records sorted by last name
 
 
 ## Example record Input
